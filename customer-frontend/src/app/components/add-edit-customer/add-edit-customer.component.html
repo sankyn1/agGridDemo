@@ -1,0 +1,101 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-success">
+                <div class="card-header">
+                    <h3 class="card-title">{{ Mode }} User</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form class="" [ngClass]="{ 'form-submit': isSubmit}" (ngSubmit)="onSubmit()" name="UserForm"
+                    [formGroup]="UserForm" autocomplete="na">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group" class="col-md-4">
+                                <label for="Usernames">Usernames</label>
+                                <input type="text" autocomplete="na" class="form-control" id="Usernames"
+                                    placeholder="Enter Username" formControlName="UserNames" #UserNames
+                                    [ngClass]="{ 'is-invalid': f.UserNames.invalid && (f.UserNames.dirty || f.UserNames.touched || isSubmit) }">
+                                <div *ngIf="f.UserNames.invalid && (f.UserNames.dirty || f.UserNames.touched || isSubmit)"
+                                    class="text-danger">
+                                    <div *ngIf="f.UserNames.errors.required">Username is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Email">Email</label>
+                                <input type="email" class="form-control" id="EmailId" autocomplete="na"
+                                    placeholder="Email" formControlName="EmailId"
+                                    [ngClass]="{ 'is-invalid': f.EmailId.invalid && (f.EmailId.dirty || f.EmailId.touched || isSubmit) }">
+                                <div *ngIf="f.EmailId.invalid && (f.EmailId.dirty || f.EmailId.touched || isSubmit)"
+                                    class="text-danger">
+                                    <div *ngIf="f.EmailId.errors.required">Email is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 margin-top">
+                                <label for="Email">Gender</label>
+                                <div class="radio inline">
+                                    <label>
+                                        <input type="radio" name="Gender" formControlName="Gender" value='Male'>Male
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Gender" formControlName="Gender" value='Female'>Female
+                                    </label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row  mt-5">
+
+                            <div class="col-md-4">
+                                <label>Mobile</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" autocomplete="na" placeholder="Mobile"
+                                        formControlName="MobileNo"
+                                        [ngClass]="{ 'is-invalid': f.MobileNo.invalid && (f.MobileNo.dirty || f.MobileNo.touched || isSubmit) }">
+                                </div>
+                                <div *ngIf="f.MobileNo.invalid && (f.MobileNo.dirty || f.MobileNo.touched || isSubmit)"
+                                    class="text-danger">
+                                    <div *ngIf="f.MobileNo.errors.required">Mobile required</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Pincode</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" autocomplete="na" placeholder="Pincode"
+                                        formControlName="Pincode"
+                                        [ngClass]="{ 'is-invalid': f.Pincode.invalid && (f.Pincode.dirty || f.Pincode.touched || isSubmit) }">
+                                </div>
+                                <div *ngIf="f.Pincode.invalid && (f.Pincode.dirty || f.Pincode.touched || isSubmit)"
+                                    class="text-danger">
+                                    <div *ngIf="f.Pincode.errors.required">Pincode required</div>
+                                </div>
+                            </div>
+                            <div class="form-group" class="col-md-4">
+                                <label for="Address">Address</label>
+                                <textarea class="form-control" autocomplete="na" id="Address"
+                                    placeholder="Enter Address" formControlName="Address"
+                                    [ngClass]="{ 'is-invalid': f.Address.invalid && (f.Address.dirty || f.Address.touched || isSubmit) }">
+                                </textarea>
+                                <div *ngIf="f.Address.invalid && (f.Address.dirty || f.Address.touched || isSubmit)"
+                                    class="text-danger">
+                                    <div *ngIf="f.Address.errors.required">Address is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-info">Submit</button>
+                        &nbsp;<a href='/customer-master' class="btn btn-danger btn-space">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
